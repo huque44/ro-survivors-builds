@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.application'
+}
+
+// versionCode vem do GitHub Actions (-Pvc=numero_do_build) para que cada APK novo instale por cima do anterior
+def vc = (project.findProperty('vc') ?: '1').toString().toInteger()
+
+android {
+    namespace 'com.huque44.rosurvivors'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.huque44.rosurvivors'
+        minSdk 26
+        targetSdk 34
+        versionCode vc
+        versionName "1.0.${vc}"
+    }
+
+    // Chave fixa no repositório: todas as versões têm a mesma assinatura e atualizam sem desinstalar
+    signingConfigs {
+        shared {
+            storeFile file('keystore.jks')
+            storePassword 'rosurvivors'
+            keyAlias 'rob'
+            keyPassword 'rosurvivors'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.shared
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.shared
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}

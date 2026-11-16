@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Espada dourada simples sobre fundo roxo -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- lâmina -->
+    <path
+        android:fillColor="#F0C05A"
+        android:pathData="M70,28 L80,28 L80,38 L50,68 L40,58 Z" />
+    <!-- guarda -->
+    <path
+        android:fillColor="#C98A2B"
+        android:pathData="M34,54 L40,48 L60,68 L54,74 Z" />
+    <!-- cabo -->
+    <path
+        android:fillColor="#8B5A2B"
+        android:pathData="M40,66 L46,72 L36,82 L30,76 Z" />
+    <!-- pomo -->
+    <path
+        android:fillColor="#F0C05A"
+        android:pathData="M26,80 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>
